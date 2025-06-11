@@ -10,14 +10,14 @@
     <h1 align="center"> WEB INFORMATIKA 23 </h1>
     <hr size="2px" color="black">
     <nav align="center">
-        <a href="index.html">HOME</a> | 
-        <a href="profile.html">PROFILE</a> |
-        <a href="about.html">ABOUT US</a> |
-        <a href="login.html">LOGIN</a>
+        <a href="index.php">HOME</a> | 
+        <a href="profile.php">PROFILE</a> |
+        <a href="about.php">ABOUT US</a> |
+        <a href="login.php">LOGIN</a>
     </nav>
     <br>
     <center>
-        <img src="https://tse2.mm.bing.net/th?id=OIF.RBhgV32fDZrNJ4ixbQ9H5A&pid=Api&P=0&h=180"widht="500px" height="300px">
+        <img src="C:\xampp2\htdocs\PemWeb\image\tungtungtungsahur.jpeg">
     </center>
     <h3 align="center">TUNG TUNG TUNG TUNG SAHUR</h3>
     <p align="center">

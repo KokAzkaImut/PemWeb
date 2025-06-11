@@ -10,7 +10,7 @@
     <h1 align="center"> WEB INFORMATIKA </h1>
     <hr size="2px" color="black">
     <nav align="center">
-        <a href="index.html">HOME</a> | 
+        <a href="index.php">HOME</a> | 
         <a href="profile.html">PROFILE</a> |
         <a href="about.html">ABOUT US</a> |
         <a href="login.html">LOGIN</a>
