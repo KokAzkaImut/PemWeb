@@ -1,23 +1,22 @@
 <?php
 
-    $koneksi = mysqli_connect ("localhost:3307","root","","pemweb");
-
-    if (! $koneksi) {
-        die("Koneksi gagal: " . mysqli_connect_error());
-    }
+    require 'function.php'; /// Memanggil file function.php
 
     $query = "SELECT * FROM mahasiswa";
-    $result = mysqli_query($koneksi, $query);   /// Object
+    
+    $rows = query ($query);/// Object
 
     /// ambil data dai result
 
-    $mhs = mysqli_fetch_assoc($result);  /// Array Asosiatif
+    ///while ($mhs = mysqli_fetch_assoc($result))
+    //{
+      //  var_dump($mhs);
+    //} /// Array Asosiatif
     /// mysqli_fetch_assoc() untuk mengambil data sebagai array asosiatif
     /// mysqli_fetch_row() untuk mengambil data sebagai array numerik
     /// mysqli_fetch_array() untuk mengambil data sebagai array asosiatif dan numerik
     /// mysqli_fetch_object() untuk mengambil data sebagai objek
 
-    var_dump($mhs);
 
 ?>
 
@@ -42,11 +41,24 @@
     <table border="1" cellspacing="0" cellpadding="10px" align="center">
         <tr>
             <th>No</th>
+            <th>Foto</th>
             <th>Nama</th>
             <th>Nim</th>
             <th>Jurusan</th>
             <th>No.HP</th>
         </tr>
+        <?php 
+        $i = 1;
+        foreach ($rows as $mhs) { ?>
+        <tr>
+            <td><?= $i ?></td>
+            <td><img src="image/<?= $mhs["foto"] ?>" width="100"></td>
+            <td><?= $mhs["nama"] ?></td>
+            <td><?= $mhs["nim"] ?></td>
+            <td><?= $mhs["jurusan"] ?></td>
+            <td><?= $mhs["nohp"] ?></td>
+        </tr>
+        <?php $i++; } ?>
     </table>
     
 </body>
