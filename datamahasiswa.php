@@ -17,7 +17,6 @@
     /// mysqli_fetch_array() untuk mengambil data sebagai array asosiatif dan numerik
     /// mysqli_fetch_object() untuk mengambil data sebagai objek
 
-
 ?>
 
 
@@ -38,6 +37,10 @@
     </nav>
 
     <h1 align="center">DATA MAHASISWA INFORMATIKA 2023 KELAS B</h1>
+
+    <a href="tambahdata.php" ><button style="margin-button: 12px;
+    background-color: #2c3e50;">Tambah Data</button></a>
+
     <table border="1" cellspacing="0" cellpadding="10px" align="center">
         <tr>
             <th>No</th>
@@ -46,6 +49,7 @@
             <th>Nim</th>
             <th>Jurusan</th>
             <th>No.HP</th>
+            <th>Aksi</th>
         </tr>
         <?php 
         $i = 1;
@@ -57,6 +61,9 @@
             <td><?= $mhs["nim"] ?></td>
             <td><?= $mhs["jurusan"] ?></td>
             <td><?= $mhs["nohp"] ?></td>
+            <td><a href="hapusdata.php/?id=<?= $mhs["id"]?>"><button style="margin-bottom: 12px;
+             background-color: lightred;">Hapus Data</button></a></td>
+
         </tr>
         <?php $i++; } ?>
     </table>
