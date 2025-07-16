@@ -42,12 +42,33 @@
         
     }
 
-    function hapusdata($id)
+    function hapusdata($id) {
+    global $koneksi;
+    mysqli_query($koneksi, "DELETE FROM mahasiswa WHERE id = $id");
+    return mysqli_affected_rows($koneksi);
+    }
+
+    function ubahdata($data, $id)
     {
         global $koneksi;
-        $query = "DELETE FROM mahasiswa WHERE id = $id";
+
+        $nama = $data["nama"];
+        $nim = $data["nim"];
+        $jurusan = $data["jurusan"];
+        $nohp = $data["nohp"];
+        
+        if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
+            $foto = $_FILES['foto']['name'];
+            move_uploaded_file($_FILES['foto']['tmp_name'], 'image/' . $foto);
+        } else {
+            $foto = null; // Atau bisa diisi dengan foto default
+        }
+
+        $query = "UPDATE mahasiswa SET nama='$nama', nim='$nim', jurusan='$jurusan', nohp='$nohp', foto='$foto' WHERE id=$id";
+        
         mysqli_query($koneksi, $query);
 
         return mysqli_affected_rows($koneksi);
     }
+
     

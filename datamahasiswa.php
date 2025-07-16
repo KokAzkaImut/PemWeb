@@ -38,8 +38,13 @@
 
     <h1 align="center">DATA MAHASISWA INFORMATIKA 2023 KELAS B</h1>
 
-    <a href="tambahdata.php" ><button style="margin-button: 12px;
-    background-color: #2c3e50;">Tambah Data</button></a>
+    <div style="display: flex; justify-content: center; margin-top: 20px;">
+    <a href="tambahdata.php">
+        <button style="background-color: #2c3e50; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+            Tambah Data
+        </button>
+    </a>
+    </div>
 
     <table border="1" cellspacing="0" cellpadding="10px" align="center">
         <tr>
@@ -61,8 +66,9 @@
             <td><?= $mhs["nim"] ?></td>
             <td><?= $mhs["jurusan"] ?></td>
             <td><?= $mhs["nohp"] ?></td>
-            <td><a href="hapusdata.php/?id=<?= $mhs["id"]?>"><button style="margin-bottom: 12px;
-             background-color: lightred;">Hapus Data</button></a></td>
+            <td><a href="hapusdata.php/?id=<?= $mhs["id"]?>" onclick="return confirm('Yakin Dek??')"><button style="margin-bottom: 12px;
+             background-color: lightred;">Hapus Data</button></a> | <a href="ubahdata.php/?id=<?= $mhs["id"]?>"><button style="margin-bottom: 12px;
+             background-color: #2c3e50;">Edit</button></a></td>
 
         </tr>
         <?php $i++; } ?>
