@@ -1,46 +1,53 @@
+<?php
+require 'function.php';
+
+if (isset($_POST["register"])) {
+    $message = register($_POST);
+
+    if ($message === "Register Berhasil") {
+        echo "<script>
+                alert('" . addslashes($message) . "');
+                document.location.href='login.php';
+              </script>";
+    } else {
+        echo "<script>
+                alert('" . addslashes($message) . "');
+                document.location.href='register.php';
+              </script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTER | INFORMATIKA</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>DAFTAR</h1>
-    <form action="login.php" method="post" enctype="multipart/form-data">
-        <label for="name">Nama Lengkap:</label><br>
-        <input type="text" name="name"><br>
-        <label for="email">Email:</label><br>
-        <input type="email" name="email"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" name="password"><br>
-        <label for="umur">Umur:</label><br>
-        <input type="number" name="umur"><br>
-        <label for="tanggallahir">Tanggal Lahir:</label>
-        <input type="date" name="tanggallahir"><br>
-        <label for="warna">Warna Favorit:</label><br>
-        <input type="color" name="warna"><br>
-        <label for="profil"name="profil">Upload Foto Profil:</label><br>
-        <input type="file" name="profil"><br>
-        <label for="jenis kelamin">Jenis Kelamin:</label><br>
-        <input type="radio" name="jenis_kelamin" value="Laki-laki"> Laki-laki<br>
-        <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan<br>
-        <label for="hobi">Hobi:</label><br>
-        <input type="checkbox" name="hobi" value="Membaca"> Membaca<br>
-        <input type="checkbox" name="hobi" value="Olahraga"> Olahraga<br>
-        <input type="checkbox" name="hobi" value="Traveling"> Traveling<br>
-        <label for="negara" >Negara:</label><br>
-        <select name="negara">
-            <option value="USA">USA</option>
-            <option value="UK">UK</option>
-            <option value="Indonesia">Indonesia</option>
-        </select>
-        <br>
-        <label for="biografi">Biografi singkat:</label><br>
-        <textarea name="biografi" rows="4" cols="50"></textarea><br>
-        <input type="submit" value="Daftar">
-    </form> 
-    <p>Sudah punya akun? <a href="login.html">Login</a></p>
+    <h1 align="center">REGISTER</h1>
+    <div class="container mt-4" style="max-width: 500px;">
+        <div class="card text-white" style="background-color: #2b3d4f;">
+            <div class="card-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password1" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="password1" name="password1" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password2" class="form-label">Konfirmasi Password:</label>
+                        <input type="password" class="form-control" id="password2" name="password2" required>
+                    </div>
+                    <button type="submit" name="register" class="btn btn-light">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

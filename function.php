@@ -71,4 +71,45 @@
         return mysqli_affected_rows($koneksi);
     }
 
+    function register($data)
+    {
+        global $koneksi;
+
+        $username = stripcslashes($data["username"]);
+        $password1 = $data["password1"];
+        $password2 = $data["password2"];
+
+        $query = "SELECT * FROM user WHERE username = '$username'";
+
+        $usernameCheck = mysqli_query($koneksi, $query);
+
+        if(mysqli_num_rows($usernameCheck) > 0)
+        {
+            return "Username sudah terdaftar!";
+        }
+
+        if(!preg_match('/^[a-zA-Z0-9.-_]+$/',$username))
+        {
+            return "Username hanya boleh mengandung huruf, angka, titik, strip, dan garis bawah!";
+        }
+
+        if($password1 !== $password2)
+        {
+            return "Konfirmasi password tidak sesuai!";
+        }
+
+        $encrypt_pass = password_hash($password1, PASSWORD_DEFAULT);
+
+        $query_insert = "INSERT INTO user (username, password) VALUES ('$username', '$encrypt_pass')";
+
+        if( mysqli_query($koneksi, $query_insert))
+        {
+            return "Register Berhasil";
+        }
+        else
+        {
+            return "Register Gagal: " . mysqli_error($koneksi);
+        } 
+    }
+
     
